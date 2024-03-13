@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click the Red Box Game</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 23px;
+            height: 100vh;
+            background-color: rgb(5, 165, 104);
+            flex-flow: row wrap;
+            align-content: center;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1" onclick="checkColor('box1')">Box 1</div>
+        <div class="box" id="box2" onclick="checkColor('box2')">Box 2</div>
+        <div class="box" id="box3" onclick="checkColor('box3')">Box 3</div>
+        <div class="box" id="box4" onclick="checkColor('box4')">Box 4</div>
+        <div class="box" id="box5" onclick="checkColor('box5')">Box 5</div>
+    </div>
+
+    <script>
+        function checkColor(e) {
+            var box = document.getElementById(e);
+            if (box.style.backgroundColor === "red") {
+                alert("You won!");
+            } else {
+                console.log("Wrong");
+            }
+        }
+        
+        function disco() {
+            let random = Math.random()
+            if (random <= 0.22) {
+                box1.style.backgroundColor = "red"
+                box2.style.backgroundColor = "green"
+                box3.style.backgroundColor = "blue"
+                box4.style.backgroundColor = "pink"
+                box5.style.backgroundColor = "purple"
+            }
+            else if (random > 0.22 && random <= 0.44) {
+                box1.style.backgroundColor = "green";
+                box2.style.backgroundColor = "blue"
+                box3.style.backgroundColor = "pink"
+                box4.style.backgroundColor = "purple"
+                box5.style.backgroundColor = "red"
+            }
+
+            else if (random > 0.44 && random <= 0.66) {
+                box1.style.backgroundColor = "blue";
+                box2.style.backgroundColor = "pink"
+                box3.style.backgroundColor = "purple"
+                box4.style.backgroundColor = "red"
+                box5.style.backgroundColor = "green"
+            }
+            else if (random > 0.66 && random <= 0.88) {
+                box1.style.backgroundColor = "pink";
+                box2.style.backgroundColor = "purple"
+                box3.style.backgroundColor = "red"
+                box4.style.backgroundColor = "green"
+                box5.style.backgroundColor = "blue"
+            }
+            else if (random > 0.66 && random <= 1) {
+                box1.style.backgroundColor = "purple";
+                box2.style.backgroundColor = "red"
+                box3.style.backgroundColor = "green"
+                box4.style.backgroundColor = "blue"
+                box5.style.backgroundColor = "pink"
+            }
+        }
+
+        setInterval(disco, 200);
+    </script>
+</body>
+</html>
